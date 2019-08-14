@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Insightdesigns_MagentoAlerts",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License-(GPL)",
+    "homepage": "",
+    "description": "This extension for Magento and companion iOS app allow you to browse sales stats and receive alerts on-the-go.",
+    "authors": [
+    {
+        "name": "Insight Designs Web Solutions, LLC",
+        "email": "evan@insightcrouch.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

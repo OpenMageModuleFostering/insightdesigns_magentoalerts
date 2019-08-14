@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+   <modules>
+      <Insightdesigns_MagentoAlerts>
+         <active>true</active>
+         <codePool>community</codePool>
+      </Insightdesigns_MagentoAlerts>     
+   </modules>
+</config>

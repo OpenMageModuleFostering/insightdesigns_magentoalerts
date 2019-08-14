@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Insightdesigns_MagentoAlerts</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license>GNU General Public License (GPL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension for Magento and companion iOS app allow you to browse sales stats and receive alerts on-the-go.</summary>
+    <description>If you are an owner or operator of a Magento online store, the iOS Alerts extension for Magento and companion iOS app allow you to browse sales stats and receive alerts on-the-go. Configure the push notifications you need, including alerts for any order, expedited shipping orders, large orders, site downtime, and Magento security releases.&lt;br /&gt;&lt;br /&gt;&#xD;
+The extension allows access to a rolling shutter of the past 30 days of order information. If enabled, generic information is stored about new orders that are placed on your online store. &lt;br /&gt;&lt;br /&gt;This information is limited to the order increment ID,  order total, shipping method, the items that were purchased, and the IP address used during checkout.&lt;br /&gt;&lt;br /&gt;No identifying information about customers (e.g., name, address, credit card number, etc) is retained.&lt;br /&gt;&lt;br /&gt;Sales data is stored for a period of 30 days and then purged. This means year-on-year sales analysis is not supported.</description>
+    <notes>Initial stable module release</notes>
+    <authors><author><name>Insight Designs Web Solutions, LLC</name><user>insightevan</user><email>evan@insightcrouch.com</email></author></authors>
+    <date>2015-07-29</date>
+    <time>18:44:41</time>
+    <contents><target name="magecommunity"><dir name="Insightdesigns"><dir name="MagentoAlerts"><dir name="Model"><file name="Observer.php" hash="a785c9daff5b8b589a9ba3d82a1c8ca3"/></dir><dir name="etc"><file name="config.xml" hash="a3ef45b5086a3e448e3b0eda16bebda0"/><file name="system.xml" hash="11a37ad07cf63d87f38f8b33056e68e7"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Insightdesigns_MagentoAlerts.xml" hash="e4e9695838dbffdcf88546fc48226491"/></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="insightdesigns"><dir name="images"><file name="enabled-black.png" hash="d4edc49c3d02866fd106db8c30147587"/><file name="ima-logo-sm.png" hash="7558d79b0911b66e4405ee507816bdc7"/><file name="ima-logo.png" hash="66eab499dd386cbbc4c6af13ae9bdeb0"/><file name="insight-designs-promo.png" hash="7acc1a2e4c629330a673928aaebdc79e"/><file name="key-black.png" hash="273f40a6bcb9006078f6efc8b3192082"/><file name="logo.png" hash="7a9f6c406e9614a7fe268e76cb450055"/><file name="store-black.png" hash="4b940c7c54cb0d2471a686fdf5eb0700"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.1</min><max>5.6.11</max></php></required></dependencies>
+</package>

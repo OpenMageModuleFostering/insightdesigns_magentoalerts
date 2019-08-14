@@ -1,0 +1,100 @@
+<config>
+    <tabs>
+        <insightdesigns_master module="adminhtml">
+            <label><![CDATA[<img id="insightdesigns_tab" src="/skin/adminhtml/default/default/insightdesigns/images/logo.png" style="display: inline; vertical-align: top; margin-right: 5px;"><span style="display: inline; padding: 0px; color: #950F0F; text-decoration: none; background: none;">Insight</span><span style="display: inline; padding: 0px; color: #555; background: none;"> Designs</span><script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_tab').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/logo.png";
+            </script>]]></label>
+            <sort_order>301</sort_order>
+        </insightdesigns_master>
+    </tabs>
+    <sections>
+        <insightdesigns_magentoalerts>
+            <label><![CDATA[iOS Alerts <img id="insightdesigns_magentoalert_tab" src="/skin/adminhtml/default/default/insightdesigns/images/ima-logo-sm.png" style="padding-top: 2px; float: right; margin-right: 5px; margin-left: 5px;" /><script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_magentoalert_tab').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/ima-logo-sm.png";
+            </script>]]></label>
+            <tab>insightdesigns_master</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store> 
+            <groups>
+                <settings translate="label comment">
+                    <label>General Settings</label>
+					<comment><![CDATA[<div style="position: relative;"><div id="ima_header" style="margin-bottom: 20px;"><img id="insightdesigns_magentoalert_header_img" src="/skin/adminhtml/default/default/insightdesigns/images/ima-logo.png" style="vertical-align: -25px; height: 75px; width: 75px;margin-right: 10px;" /><span style="font-family: Arial, Helvetica, sans-serif; font-size: 36px;">iOS Alerts</span></div>The <strong>iOS Alerts</strong> extension for Magento and companion iOS app allow you to browse sales stats<br>and receive alerts on-the-go. Configure the push notifications you need, including alerts for any order,<br>expedited shipping orders, large orders, site downtime, and Magento security releases.<div style="position: absolute;top: 0px;right: 0px;z-index: 8675309;"><a href="https://www.insightdesigns.com/our-work/websites/#magento" target="_blank"><img id="insightdesigns_promo" src="/skin/adminhtml/default/default/insightdesigns/images/insight-designs-promo.png" style="border: 1px solid #DEDEDE;"/></a></div><br><br><a href="https://apps.insightdesigns.com/magento-alerts" target="_blank" style="color: #ea7601;">Click here to learn more about how to use this extension and companion iOS app!</a><br><br></div><script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_promo').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/insight-designs-promo.png";
+            $('insightdesigns_magentoalert_header_img').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/ima-logo.png";
+            </script>]]></comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<enabled translate="label comment">
+							<label><![CDATA[<img id="insightdesigns_magentoalert_enabled_img" src="/skin/adminhtml/default/default/insightdesigns/images/enabled-black.png" style="height: 16px; width: 16px; vertical-align: -3px; margin-right: 5px;" />Module Enabled?<script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_magentoalert_enabled_img').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/enabled-black.png";
+            </script>]]></label>
+                            <comment>Select 'Yes' to enable sales reporting and app access</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <device_uuids translate="label comment">
+							<label><![CDATA[<img id="insightdesigns_magentoalert_key_img" src="/skin/adminhtml/default/default/insightdesigns/images/key-black.png" style="height: 16px; width: 16px; vertical-align: -3px; margin-right: 5px;" />Device Keys<script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_magentoalert_key_img').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/key-black.png";
+            </script>]]></label>
+                            <comment><![CDATA[Include the Device Keys of iPhone devices you would like to sync sales with, one per line. For help finding your device key, <a href="https://apps.insightdesigns.com/magento-alerts" target="_blank">click here</a>.]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </device_uuids>
+                        <guid translate="label comment">
+							<label><![CDATA[<img id="insightdesigns_magentoalert_store_img" src="/skin/adminhtml/default/default/insightdesigns/images/store-black.png" style="height: 16px; width: 16px; vertical-align: -3px; margin-right: 5px;" />Store Identifier<script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('insightdesigns_magentoalert_store_img').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/insightdesigns/images/store-black.png";
+            </script>]]></label>
+                            <comment><![CDATA[This is your Magento store's unique identifier.<script>
+								function randomGUID(length, chars) {
+								    var mask = '';
+								    if (chars.indexOf('a') > -1) mask += 'abcdefghijklmnopqrstuvwxyz';
+								    if (chars.indexOf('A') > -1) mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+								    if (chars.indexOf('#') > -1) mask += '0123456789';
+								    if (chars.indexOf('!') > -1) mask += '!&_';
+								    var result = '';
+								    for (var i = length; i > 0; --i) result += mask[Math.round(Math.random() * (mask.length - 1))];
+								    return result;
+								}
+	                            var alert_guid = document.getElementById("insightdesigns_magentoalerts_settings_guid").value;
+	                            if (typeof alert_guid == "undefined" || alert_guid == "") {
+		                            // Generate a secure 1024 character unique key
+		                            document.getElementById("insightdesigns_magentoalerts_settings_guid").value = randomGUID(1024,'#aA');
+	                            }
+	                            document.getElementById("insightdesigns_magentoalerts_settings_guid").setAttribute("readonly","true");
+	                            document.getElementById("insightdesigns_magentoalerts_settings_guid").style.backgroundColor = "#DEDEDE";
+                            </script>]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </guid>
+                    </fields>
+                </settings>
+            </groups>
+        </insightdesigns_magentoalerts>
+    </sections>
+</config>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Insightdesigns_MagentoAlerts>
+            <version>1.0.0</version>
+            <depends>
+            <!-- no dependencies -->
+            </depends>
+        </Insightdesigns_MagentoAlerts>
+    </modules>
+    <global>
+        <models />
+        <resources />
+        <extraconfig />
+        <blocks />
+	    <events>
+	        <checkout_onepage_controller_success_action>
+		        <observers>
+			        <magealerts>
+                        <type>singleton</type>
+                        <class>Insightdesigns_MagentoAlerts_Model_Observer</class>
+                        <method>afterOrderSync</method>
+			        </magealerts>
+		        </observers>
+	        </checkout_onepage_controller_success_action>
+	    </events>
+    </global>
+    <adminhtml>
+        <events>
+            <admin_system_config_changed_section_insightdesigns_magentoalerts>
+                <observers>
+                    <magealerts>
+                        <type>singleton</type>
+                        <class>Insightdesigns_MagentoAlerts_Model_Observer</class>
+                        <method>adminSystemConfigSave</method>
+                    </magealerts>
+                </observers>
+            </admin_system_config_changed_section_insightdesigns_magentoalerts>
+        </events>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <insightdesigns_magentoalerts>
+                                            <title>Magento Alerts</title>
+                                        </insightdesigns_magentoalerts>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
