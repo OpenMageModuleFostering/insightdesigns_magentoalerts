@@ -97,11 +97,33 @@ class Insightdesigns_MagentoAlerts_Model_Observer
 					        );
 						    foreach ($order_items as $order_item) {
 							    $order_item_product = Mage::getModel('catalog/product')->load($order_item->getProductId());
+							    
+								// S3 Image check
+							    $img_url = (string)Mage::helper('catalog/image')->init($order_item_product, 'thumbnail')->resize(150);
+							    if (strlen($img_url) > 0) {
+								    $exploded_image_url_protocol = explode('//', $img_url);
+									$url_to_use = $exploded_image_url_protocol[0];
+									$url_start = '';
+									if (count($exploded_image_url_protocol) > 1) {
+										$url_start = $exploded_image_url_protocol[0];
+										$url_to_use = $exploded_image_url_protocol[1];
+									}
+									$exploded_image_url = explode('/', $url_to_use);
+									if (strpos($exploded_image_url[0], '.s3.amazonaws.com') !== false && $exploded_image_url[0] != 's3.amazonaws.com') {
+										$account_url = str_replace('.s3.amazonaws.com', '', $exploded_image_url[0]);
+										$img_url = $url_start . '//s3.amazonaws.com/' . $account_url;
+										$section = 1;
+										while ($section < count($exploded_image_url)) {
+											$img_url .= '/' . $exploded_image_url[$section];
+											$section++;
+										}
+									}
+								}
 							    $order_data['items'][] = array(
 								    'name' => $order_item->getName(),
 								    'sku' => $order_item->getSku(),
 								    'qty' => round($order_item->getQtyOrdered(), 1),
-								    'image' => (string)Mage::helper('catalog/image')->init($order_item_product, 'thumbnail')->resize(150)
+								    'image' => (string)$img_url
 							    );
 							}
 							
