@@ -74,41 +74,43 @@ class Insightdesigns_MagentoAlerts_Model_Observer
 	        if (empty($order_ids) || !is_array($order_ids)) {
 	            return;
 	        }
-	        $order_id = $order_ids[0];
-	        $order = Mage::getModel('sales/order')->load($order_id);
+	        foreach ($order_ids as $order_id) {
 
-	        if (is_object($order)) {
-				// ENABLED?
-		        if (Mage::getStoreConfigFlag('insightdesigns_magentoalerts/settings/enabled', $order->getStoreId())) {
-			        // GUID SET?
-					if (Mage::getStoreConfig('insightdesigns_magentoalerts/settings/guid', $order->getStoreId()) != '') {
-				        $order_items = $order->getAllItems();
-				        $order_data = array(
-					        'sale_total' => number_format($order->getGrandTotal(), 2, '.', ''),
-					        'sale_increment_id' => $order->getIncrementId(),
-					        'sale_shipping_method' => $order->getShippingDescription(),
-					        'sale_date' => $order->getCreatedAt(),
-					        'sale_ip_address' => $order->getRemoteIp(),
-					        'sale_store_id' => $order->getStoreId(),
-					        'sale_website_id' => Mage::getModel('core/store')->load($order->getStoreId())->getWebsiteId(),
-					        'guid' => Mage::getStoreConfig('insightdesigns_magentoalerts/settings/guid', $order->getStoreId()),
-					        'items' => array()
-				        );
-					    foreach ($order_items as $order_item) {
-						    $order_item_product = Mage::getModel('catalog/product')->load($order_item->getProductId());
-						    $order_data['items'][] = array(
-							    'name' => $order_item->getName(),
-							    'sku' => $order_item->getSku(),
-							    'qty' => round($order_item->getQtyOrdered(), 1),
-							    'image' => (string)Mage::helper('catalog/image')->init($order_item_product, 'thumbnail')->resize(150)
-						    );
-						}
-						
-						if (count($order_data) > 0) {
-							$this->storeOrder($order_data);
+		        $order = Mage::getModel('sales/order')->load($order_id);
+	
+		        if (is_object($order)) {
+					// ENABLED?
+			        if (Mage::getStoreConfigFlag('insightdesigns_magentoalerts/settings/enabled', $order->getStoreId())) {
+				        // GUID SET?
+						if (Mage::getStoreConfig('insightdesigns_magentoalerts/settings/guid', $order->getStoreId()) != '') {
+					        $order_items = $order->getAllItems();
+					        $order_data = array(
+						        'sale_total' => number_format($order->getGrandTotal(), 2, '.', ''),
+						        'sale_increment_id' => $order->getIncrementId(),
+						        'sale_shipping_method' => $order->getShippingDescription(),
+						        'sale_date' => $order->getCreatedAt(),
+						        'sale_ip_address' => $order->getRemoteIp(),
+						        'sale_store_id' => $order->getStoreId(),
+						        'sale_website_id' => Mage::getModel('core/store')->load($order->getStoreId())->getWebsiteId(),
+						        'guid' => Mage::getStoreConfig('insightdesigns_magentoalerts/settings/guid', $order->getStoreId()),
+						        'items' => array()
+					        );
+						    foreach ($order_items as $order_item) {
+							    $order_item_product = Mage::getModel('catalog/product')->load($order_item->getProductId());
+							    $order_data['items'][] = array(
+								    'name' => $order_item->getName(),
+								    'sku' => $order_item->getSku(),
+								    'qty' => round($order_item->getQtyOrdered(), 1),
+								    'image' => (string)Mage::helper('catalog/image')->init($order_item_product, 'thumbnail')->resize(150)
+							    );
+							}
+							
+							if (count($order_data) > 0) {
+								$this->storeOrder($order_data);
+							}
 						}
 					}
-				}
+		        }
 	        }
     }
 }
